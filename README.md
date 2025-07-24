@@ -41,7 +41,12 @@ bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/
 * Nginx с SSL (Let's Encrypt) и Basic Auth (логин/пароль для доступа к Supabase Studio)
 * Запросит домен и подставит его в nginx
 * Полезные утилиты: `git`, `jq`, `htop`, `net-tools`, `ufw`, `unzip`
+---
+## Шаг 4: После завершения установки:
 
+1. Скопируйте данные для входа
+2. Перезагрузите сервер
+3. Очистите КЭШ браузера
 ------------------------------------
 
 ## В установку включено:
