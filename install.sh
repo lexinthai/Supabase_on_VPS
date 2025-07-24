@@ -82,7 +82,7 @@ ufw --force enable
 
 # === 10. Финальный вывод ===
 echo "
-Установка Supabase на VPS завершена! Благодарности на Сбер +79777488938"
+Установка Supabase на VPS завершена! Благодарности на сбер +79777488938. Скопируйте данные данные для входа"
 echo "  Dashboard: https://$IP_DOMAIN"
 echo "  Username: $DASH_USER"
 echo "  Password: $DASH_PASS"
