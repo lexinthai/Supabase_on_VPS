@@ -25,7 +25,7 @@
 Введи в терминале следующую команду:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/lexinthai/supabase_on_VPS/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/install.sh)
 ```
 
 Прграмма последовательно установит все необходимое:
@@ -52,7 +52,7 @@ bash <(curl -s https://raw.githubusercontent.com/lexinthai/supabase_on_VPS/main/
 Запустите обновление командой:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/lexinthai/supabase_on_VPS/main/update.sh)
+bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/update.sh)
 ```
 
 ### Что делает `update.sh`:
@@ -67,7 +67,7 @@ bash <(curl -s https://raw.githubusercontent.com/lexinthai/supabase_on_VPS/main/
 Ручной бэкап:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/lexinthai/supabase_on_VPS/main/backup.sh)
+bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/backup.sh)
 ```
 
 Автоматический бэкап в `cron`:
@@ -82,13 +82,13 @@ bash <(curl -s https://raw.githubusercontent.com/lexinthai/supabase_on_VPS/main/
 
 ```bash
 # Установка Supabase
-bash <(curl -s https://raw.githubusercontent.com/lexinthai/supabase_on_VPS/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/install.sh)
 
 # Безопасное обновление Supabase
-bash <(curl -s https://raw.githubusercontent.com/lexinthai/supabase_on_VPS/main/update.sh)
+bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/update.sh)
 
 # Резервное копирование базы данных
-bash <(curl -s https://raw.githubusercontent.com/lexinthai/supabase_on_VPS/main/backup.sh)
+bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/backup.sh)
 ```
 
 ------------------------------------
@@ -97,5 +97,5 @@ bash <(curl -s https://raw.githubusercontent.com/lexinthai/supabase_on_VPS/main/
 
 | Скрипт                                                                                   | Назначение           |
 | ---------------------------------------------------------------------------------------- | -------------------- |
-| [`install.sh`](https://github.com/lexinthai/supabase_on_VPS/blob/main/install.sh) | Установка Supabase   |
-| [`update.sh`](https://github.com/lexinthai/supabase_on_VPS/blob/main/update.sh)   | Обновление с бэкапом |
+| [`install.sh`](https://github.com/lexinthai/Supabase_on_VPS/blob/main/install.sh) | Установка Supabase   |
+| [`update.sh`](https://github.com/lexinthai/Supabase_on_VPS/blob/main/update.sh)   | Обновление с бэкапом |
