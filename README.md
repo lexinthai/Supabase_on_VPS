@@ -31,7 +31,7 @@
 Вводим в терминале следующую команду:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/install.sh)
+sudo bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/install.sh)
 ```
 
 Прграмма последовательно установит все необходимое:
