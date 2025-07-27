@@ -31,7 +31,7 @@
 Вводим в терминале следующую команду:
 
 ```bash
-sudo bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/install.sh)
 ```
 
 Прграмма последовательно установит все необходимое:
@@ -63,7 +63,7 @@ sudo bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/
 Запустите обновление командой:
 
 ```bash
-sudo bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/update.sh)
+bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/update.sh)
 ```
 
 ### Что делает `update.sh`:
@@ -79,7 +79,7 @@ sudo bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/
 Ручной бэкап:
 
 ```bash
-sudo bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/backup.sh)
+bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/backup.sh)
 ```
 
 Автоматический бэкап в `cron`:
@@ -94,13 +94,13 @@ sudo bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/
 
 ```bash
 # Установка Supabase
-sudo bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/install.sh)
 
 # Безопасное обновление Supabase
-sudo bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/update.sh)
+bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/update.sh)
 
 # Резервное копирование базы данных
-sudo bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/backup.sh)
+bash <(curl -s https://raw.githubusercontent.com/lexinthai/Supabase_on_VPS/main/backup.sh)
 ```
 
 ------------------------------------
