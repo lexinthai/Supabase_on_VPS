@@ -1,16 +1,16 @@
 #!/bin/bash
 cd /opt/supabase-project
 
-echo "Создается бэкап перед обновлением"
+echo "Создается резервная копия перед обновлением"
 docker exec supabase-db pg_dump -U postgres -d postgres > backup_$(date +%F_%H-%M).sql
 
-echo "Остановка Supabase"
+echo "Останавливается работа Supabase"
 docker compose down
 
-echo "Обновляю образы"
+echo "Обновление образов"
 docker compose pull
 
-echo "Запускаем Supabase"
+echo "Выполняем запуск Supabase"
 docker compose up -d
 
-echo "✅ Обновление завершено"
+echo "Поздравляю. Supabase обновлена!"
