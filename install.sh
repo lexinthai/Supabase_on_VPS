@@ -1,27 +1,27 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# === 1. Опрос пользователя ===
+# ----- 1. Предварительный опрос ----- 
 read -p "Введите пожалуйста Ваш IP или домен: " IP_DOMAIN
 read -p "Введите пожалуйста Ваш email для SSL: " EMAIL
 read -p "Введите пожалуйста имя пользователя для входа: " DASH_USER
 read -p "Введите пожалуйста пароль для входа: " DASH_PASS
 
-if [ -z "$IP_DOMAIN" ]; then echo "❌ IP или домен пустой!"; exit 1; fi
+if [ -z "$IP_DOMAIN" ]; then echo " Перепроверьте IP или домен пустой!"; exit 1; fi
 
-# === 2. Обновление системы и установка зависимостей ===
+# ----- 2. Системное обновление с установка зависимостей ----- 
 apt update && apt upgrade -y
 apt install -y curl git jq apache2-utils nginx certbot python3-certbot-nginx unzip 
 
-# === 3. Установка Docker ===
+# ----- 3. Тут установливаем Docker ----- 
 curl -fsSL https://get.docker.com | sh
 
-# === 4. Клонирование репозитория Supabase self-hosted ===
+# ----- 4. Клонируем репозиторий Supabase из официального источника ----- 
 cd ~
 git clone https://github.com/supabase/supabase.git supabase-selfhost
 cd supabase-selfhost/docker
 
-# === 5. Генерация .env ===
+# ----- 5. Генерируем .env конфигурационный файл----- 
 cp .env.example .env
 POSTGRES_PASS=$(openssl rand -hex 16)
 JWT_SECRET=$(openssl rand -hex 20)
@@ -38,10 +38,10 @@ DASHBOARD_USERNAME=$DASH_USER
 DASHBOARD_PASSWORD=$DASH_PASS
 EOF
 
-# === 6. Запуск Docker Compose ===
+# ----- 6. Производим запуск Docker Compose ----- 
 docker compose up -d
 
-# === 7. Настройка Nginx и Basic Auth ===
+# ----- 7. Настраиваем сервер Nginx и Basic Auth ----- 
 mkdir -p /etc/nginx/sites-available /etc/nginx/sites-enabled
 htpasswd -bc /etc/nginx/.htpasswd $DASH_USER $DASH_PASS
 cat <<EOL > /etc/nginx/sites-available/supabase
@@ -64,25 +64,25 @@ EOL
 ln -sf /etc/nginx/sites-available/supabase /etc/nginx/sites-enabled/supabase
 nginx -t && systemctl restart nginx
 
-# === 8. Выпуск SSL сертификата ===
+# ----- 8. Запрашиваем выпуск SSL сертификата ----- 
 certbot --nginx -d $IP_DOMAIN --agree-tos -m $EMAIL --redirect --non-interactive
 
-# === 9. Настройка UFW (фаервол) ===
-# Запрет всех входящих, разрешить исходящие
+# ----- 9. Производим настройку правил UFW (Файрвола) ----- 
+# Выставляем запрет всех входящих и разрешаем все исходящие
 ufw default deny incoming
 ufw default allow outgoing
 # Разрешить SSH, HTTP, HTTPS
 ufw allow ssh
 ufw allow http
 ufw allow https
-# Закрыть порты Supabase (54321–54324)
+# Закрываем порты Supabase (54321–54324)
 ufw deny proto tcp from any to any port 54321:54324
-# Включить UFW без интерактивного подтверждения
+# Включаем Файрвол UFW без интерактивного подтверждения
 ufw --force enable
 
-# === 10. Финальный вывод ===
+# ----- 10. Итоговый завершающий вывод данных, необходимых для доступа ----- 
 echo "
-Установка Supabase на VPS завершена! Благодарности на сбер +79777488938. Скопируйте данные данные для входа"
+Установка Supabase на VPS завершена! Сначала скопируйте данные данные для входа, затем ПЕРЕЗАГРУЗИТЕ сервер!"
 echo "  Dashboard: https://$IP_DOMAIN"
 echo "  Username: $DASH_USER"
 echo "  Password: $DASH_PASS"
